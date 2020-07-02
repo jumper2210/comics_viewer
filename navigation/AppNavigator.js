@@ -1,11 +1,11 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { ComicsNavigator } from "./ComicsNavigator";
+import { ViewerNavigator } from "./ComicsNavigator";
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <ComicsNavigator />
+      <ViewerNavigator />
     </NavigationContainer>
   );
 };

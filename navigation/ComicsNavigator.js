@@ -24,7 +24,7 @@ export const ViewerNavigator = () => {
   return (
     <ViewerStackNavigator.Navigator screenOptions={defaultNavOptions}>
       <ViewerStackNavigator.Screen
-        name="Viewer"
+        name="List of comics"
         component={ComicsListScreen}
         options={ComicsListScreenOptions}
       />
