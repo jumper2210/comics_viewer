@@ -1,14 +1,14 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Image } from "react-native";
 import Colors from "../constants/Colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
 const ComicItem = (props) => {
   return (
     <TouchableOpacity style={styles.comicItem}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>title</Text>
+        <Text style={styles.title}>{props.title}</Text>
       </View>
-      <Text style={styles.image}>picture</Text>
+      <Image source={{ uri: props.url }} style={styles.image} />
     </TouchableOpacity>
   );
 };
@@ -22,21 +22,21 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondary,
   },
   title: {
-    color: Colors.secondary,
-    fontSize: 15,
+    color: Colors.primary,
+    fontSize: 25,
   },
   image: {
     width: 100,
     height: 100,
-    borderRadius: 10,
-    backgroundColor: Colors.secondary,
+    borderRadius: 50,
+    backgroundColor: "#ccc",
+    borderColor: Colors.primary,
     borderWidth: 1,
-    alignSelf: "flex-end",
   },
   titleContainer: {
-    marginLeft: 20,
-    width: 50,
-    justifyContent: "center",
+    marginLeft: 30,
+    width: 150,
+    justifyContent: "flex-start",
     alignItems: "flex-start",
   },
 });
