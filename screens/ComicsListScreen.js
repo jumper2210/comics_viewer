@@ -14,7 +14,7 @@ const ComicsListScreen = (props) => {
   return (
     <FlatList
       data={comics}
-      keyExtractor={(item) => item.num}
+      keyExtractor={(item) => item.num.toString()}
       renderItem={(itemData) => (
         <View style={styles.item}>
           <ComicItem

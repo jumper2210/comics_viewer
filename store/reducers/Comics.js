@@ -5,7 +5,6 @@ const initialState = {
 
 const comicsReducer = (state = initialState, action) => {
   return {
-    ...state,
     comics: action.comics,
   };
 };

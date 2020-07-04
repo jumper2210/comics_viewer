@@ -1,8 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, Image } from "react-native";
-import { Platform } from "react-native";
-import { HeaderButtons, Item } from "react-navigation-header-buttons";
-import CustomHeaderButton from "../UI/CustomHeaderButton";
+import { StyleSheet, Image } from "react-native";
 import { useSelector } from "react-redux";
 
 const ComicDetailScreen = (props) => {
@@ -23,18 +20,7 @@ const styles = StyleSheet.create({
 });
 export const screenOptions = (navData) => {
   return {
-    headerTitle: navData.route.params.ComicDetail,
-    headerRight: () => (
-      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-        <Item
-          title="Back"
-          iconName="md-arrow-back"
-          onPress={() => {
-            navData.navigation.navigate("ListOfComics");
-          }}
-        />
-      </HeaderButtons>
-    ),
+    headerTitle: navData.route.params.comicTitle,
   };
 };
 
