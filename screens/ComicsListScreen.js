@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
-import ClinicItem from "../components/ComicItem";
-
-const ComicsListScreen = () => {
-  const [comics, setComics] = useState("");
-
-  let url = "https://xkcd.com/37/info.0.json";
-  console.log(comics);
+import ComicItem from "../components/ComicItem";
+import { ScrollView, FlatList } from "react-native-gesture-handler";
+import * as clinicsActions from "../store/actions/comics";
+import { useSelector, useDispatch } from "react-redux";
+const ComicsListScreen = (props) => {
+  const comics = useSelector((state) => state.comics.comics);
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if (res.status !== 200) {
-          throw new Error("Failed to fetch Comics");
-        }
-        return res.json();
-      })
-      .then((resData) => {
-        setComics(resData);
-      });
-  }, []);
+    dispatch(clinicsActions.fetchComics());
+  }, [dispatch]);
 
   return (
-    <View style={styles.item}>
-      <ClinicItem title={comics.title} url={comics.img} />
-    </View>
+    <FlatList
+      data={comics}
+      keyExtractor={(item) => item.num}
+      renderItem={(itemData) => (
+        <View style={styles.item}>
+          <ComicItem
+            image={itemData.item.img}
+            title={itemData.item.title}
+            onSelect={() => {
+              props.navigation.navigate("ComicDetails", {
+                comicTitle: itemData.item.title,
+                comicId: itemData.item.num,
+              });
+            }}
+          />
+        </View>
+      )}
+    />
   );
 };
 const styles = StyleSheet.create({

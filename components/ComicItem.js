@@ -4,11 +4,11 @@ import Colors from "../constants/Colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
 const ComicItem = (props) => {
   return (
-    <TouchableOpacity style={styles.comicItem}>
+    <TouchableOpacity style={styles.comicItem} onPress={props.onSelect}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>{props.title}</Text>
       </View>
-      <Image source={{ uri: props.url }} style={styles.image} />
+      <Image source={{ uri: props.image }} style={styles.image} />
     </TouchableOpacity>
   );
 };
@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 125,
+    height: 125,
+    borderRadius: 20,
     backgroundColor: "#ccc",
     borderColor: Colors.primary,
     borderWidth: 1,
