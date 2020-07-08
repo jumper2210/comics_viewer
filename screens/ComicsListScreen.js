@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import ComicItem from "../components/ComicItem";
 import { FlatList } from "react-native-gesture-handler";
