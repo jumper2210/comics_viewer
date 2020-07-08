@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import ComicItem from "../components/ComicItem";
-import { ScrollView, FlatList } from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
 import * as clinicsActions from "../store/actions/comics";
 import { useSelector, useDispatch } from "react-redux";
 const ComicsListScreen = (props) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
 import { useSelector } from "react-redux";
 
 const ComicDetailScreen = (props) => {
@@ -10,14 +10,17 @@ const ComicDetailScreen = (props) => {
 
   return <Image source={{ uri: selectedComic.img }} style={styles.image} />;
 };
+
 const styles = StyleSheet.create({
   image: {
+    resizeMode: "contain",
     height: "100%",
     minHeight: 200,
     width: "100%",
     backgroundColor: "#ccc",
   },
 });
+
 export const screenOptions = (navData) => {
   return {
     headerTitle: navData.route.params.comicTitle,

@@ -12,6 +12,5 @@ export const fetchComics = () => {
         });
       dispatch({ type: FETCH_COMIC, comics: data });
     }
-    dispatch;
   };
 };
